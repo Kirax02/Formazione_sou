@@ -1,0 +1,3 @@
+questo script stampa 10 parametri che vengono passati da riga di comando
+e verifica se ne sono stati passati 10, se non ne vengono forniti 10 
+stamperà un errore dove dice che servono 10 parametri.

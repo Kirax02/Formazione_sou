@@ -1,0 +1,7 @@
+Questo script serve per far capire come funzionano le variabili e come si 
+assegnano.
+All esecuzione dello script mostra una variabile "a" con valore 879,
+successivamente mostra la stessa variabile "a" ma con il valore di 21
+che sarebbe la somma di 16+5, continua mostrando sempre la stessa
+variabile "a" ma in loop con 7, 8, 9, 11, in fine chiede all' utente di
+inserire un valore per "a" e poi lo mostra.

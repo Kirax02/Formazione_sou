@@ -1,1 +1,0 @@
-Questo script serve per ripulire dei file di log.

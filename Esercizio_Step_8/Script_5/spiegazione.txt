@@ -1,0 +1,5 @@
+questo script mostra il funzionamento degli exit status, quando un comando
+viene eseguito con successo ha come exit status 0 se invece viene eseguito
+senza successo viene visualizzato come exit status un numero diverso da 0
+invece quando si esce dallo script viene visualizzato come exit status il 
+numero 113.

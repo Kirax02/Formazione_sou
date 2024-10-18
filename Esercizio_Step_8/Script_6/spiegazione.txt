@@ -1,0 +1,4 @@
+questo script definisce un array associativo chiamato "address" dove
+vengono inseriti gli indirizzi di varie persone dove gli indici sono proprio i nomi, lo script continua con alcuni echo che 
+richiamano i vari indici e gli indirizzi associati infine fa un echo
+di tutti glio indici.

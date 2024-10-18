@@ -1,0 +1,2 @@
+Questo script serve per verificare se l utente che lo esegue ha privilegi
+di root.

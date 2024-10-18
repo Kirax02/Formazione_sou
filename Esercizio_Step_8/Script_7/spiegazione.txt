@@ -1,0 +1,2 @@
+questo script implementa una barra di progresso con dei puntini per 
+dei lunghi processi.

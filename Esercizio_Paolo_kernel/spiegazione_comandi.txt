@@ -1,0 +1,10 @@
+Il primo comando utilizato è "uname -r", serve per visualizzare la 
+versione del kernel in uso.
+Il secondo comandi utilizzato è "rpm -q kernel" è utilizzato per elencare 
+i vari pacchetti del kernel installati.
+Il terzo comando utilizzate è "sed 's/kernel-//' serve per rimuove la 
+parte "kernel-" dai nomi dei pacchetti.
+Il quarto comando utilizzato è "sort -V" viene utilizzato per ordinare le 
+versioni in modo naturale.
+Il quinto comando utilizzato è "tail -n 1" serve per prendere l'ultima 
+riga, che rappresenta la versione più recente.

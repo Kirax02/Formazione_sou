@@ -1,0 +1,39 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Pull Docker image
+      docker_image:
+        name: ealen/echo-server
+        source: pull
+
+    - name: Create container
+      docker_container:
+        name: Mario
+        state: started
+        image: ealen/echo-server
+
+- hosts: node1
+  become: yes
+  tasks:
+    - name: Crontab for node1
+      cron:
+        name: c1
+        minute: "*/2"
+        job: "sudo -i docker kill Mario && sleep 60 && sudo -i docker start Mario"
+
+- hosts: node2
+  become: yes
+  tasks:
+    - name: Crontab for node2
+      cron:
+        name: c2
+        minute: "*/2"
+        job: "sudo -i docker start Mario && sleep 60 && sudo -i docker kill Mario"
+

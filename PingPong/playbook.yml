@@ -7,15 +7,32 @@
         name: docker.io
         state: present
         update_cache: yes
+    - name: Install NTP
+      apt:
+        name: ntp
+        state: present
+
+    - name: Set timezone to Italy
+      timezone:
+        name: Europe/Rome
+
+    - name: Start NTP service
+      service:
+        name: ntp
+        state: started
+        enabled: yes
+
     - name: Pull Docker image
       docker_image:
         name: ealen/echo-server
         source: pull
+
     - name: Create container
       docker_container:
         name: Mario
         state: started
         image: ealen/echo-server
+
 - hosts: node1
   become: yes
   tasks:
@@ -24,11 +41,13 @@
         name: c1
         minute: 1-59/2
         job: sudo -i docker start Mario
+
     - name: stop conatiner node1
       cron:
         name: c1.1
         minute: 0-58/2
         job: sudo -i docker kill Mario
+
 - hosts: node2
   become: yes
   tasks:
@@ -37,6 +56,7 @@
         name: c2
         minute: 0-58/2
         job: sudo -i docker start Mario
+
     - name: stop container node2
       cron:
         name: c2.1

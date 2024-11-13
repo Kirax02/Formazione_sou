@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    pacchetti:
+      - name: python3
+        state: present
+      - name: git
+        state: present
+      - name: docker.io
+        state: present
+      - name: ntp
+        state: present
+
+  tasks:
+    - name: Aggiornamento repository
+      package:
+        update_cache: yes
+
+    - name: Installazione pacchetti
+      package:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      loop: "{{ pacchetti }}"

@@ -1,0 +1,37 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    users:
+      - name: "Franco"
+        group: "Developer"
+        home: "/home/franco"
+        shell: "/bin/bash"
+      - name: "Mario"
+        group: "DevOps"
+        home: "/home/mario"
+        shell: "/bin/zsh"
+      - name: "Alessio"
+        group: "Developer"
+        home: "/home/alessio"
+        shell: "/bin/bash"
+  tasks:
+    - name: Creazione gruppo DevOps
+      group:
+        name: DevOps
+        state: present
+
+    - name: Creazione gruppo Developer
+      group:
+        name: Developer
+        state: present
+
+    - name: Creazione utenti
+      user:
+        name: "{{ item.name }}"
+        group: "{{ item.group }}"
+        home: "{{ item.home }}"
+        shell: "{{ item.shell }}"
+        state: present
+      loop: "{{ users }}"
+

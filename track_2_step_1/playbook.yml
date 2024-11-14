@@ -30,4 +30,37 @@
           - subnet: 192.168.10.0/24
             gateway: 192.168.10.1
 
+    - name: Pull Docker image for Jenkins Master
+      docker_image:
+        name: jenkins/jenkins:lts
+        source: pull
+
+    - name: Create Jenkins container Master
+      docker_container:
+        name: jenkins_master
+        image: jenkins/jenkins:lts
+        networks: 
+          - name: Mario_network
+            ipv4_address: 192.168.10.2
+        ports:
+          - "8080:8080"
+          - "50000:50000"
+        state: started
+
+    - name: Pull Docker image for Jenkins Slave
+      docker_image:
+        name: jenkins/agent
+        source: pull
+
+    - name: Create Jenkins container Slave
+      docker_container:
+        name: jenkins_slave
+        image: jenkins/agent
+        networks:
+          - name: Mario_network
+        env:
+          JENKINS_URL: "http://192.168.10.2:8080"
+          JENKINS_AGENT_NAME: "jenkins_slave"
+          JENKINS_SECRET: "jenkins_secret_master"
+        state: started
 

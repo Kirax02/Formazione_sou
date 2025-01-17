@@ -1,0 +1,3 @@
+# Esercizio su apache
+## Questa cartella contiene un esercizio riguardo alla configurazione di un server apache che espone una pagina "Hello World" e la creazione di certificati **autofirmati** cosi che si possa attivare il tls e poter rangiungere il sito tramite **HTTPS**.  Il tutto viene automatizzato con **vagrant** ed **ansible**.
+### Se si vuole testare il tutto bisogna solo clonare la repository, entrare all interno di questa cartella ed eseguire il comando `Vagrant up`, una volta fatto ciò possiamo conneterci andando sul nostro browser ed inserire l' indirizzo IP della VM, in questo caso `https://192.168.10.15`.

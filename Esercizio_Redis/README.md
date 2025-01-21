@@ -8,5 +8,5 @@ Passaggi:
 2. `helm pull bitnami/redis --untar`: con il seguente comando andiamo a prendere il chart dalla repo di bitnami cosi volendo possiamo modificarlo.
 3. `helm install my-redis redis --set auth.enabled=false`: con il seguente comando andiamo a installare il chart all interno del nostro cluster Kubernetes senza autenticazione.
 
-una volta fatto ciò bisogna eseguire lo script con il seguente comando:  
+una volta fatto ciò bisognerà eseguire lo script con il seguente comando:  
 `python script_redis.py`.
